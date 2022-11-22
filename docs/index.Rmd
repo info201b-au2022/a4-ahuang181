@@ -10,6 +10,7 @@ source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
+
 ## Abstract 
 **Incarceration rates** across the U.S. give *insight* to more
 than just jail populations alone, but how they relate to **discriminatory
@@ -72,12 +73,25 @@ source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
+```{r echo=FALSE, eval=TRUE, message=FALSE,}
+```
+
 Over the years, the change in the jail population has been in general quite
 a steep increase. Specifically, within this dataset, there has been an giant
-increase of about `r change_1970_2008` in jail population from the years of
-1970 to 2008. However, the change in jail population has been more steady in
+increase of about **`r change_1970_2008`** in total jail population from the years of
+1970 to 2008. However, the change in jail population has been less in
 comparison to that, within the most recent ten years of the data (2008-2018),
-with a slight decrease of `r change_2008_2018` in jail population.
+with a slight decrease of about **`r change_2008_2018`** in total jail population.
+To add on, in the most recent year of 2018 in the dataset, the average jail
+population by state across the U.S. was **`r avg_2018_jail_pop`**. With that,
+**`r highest_state_jail_pop`** was the state with the highest jail population
+at **`r highest_avg_jail_pop`**. Additionally, the dataset also reveals inequalities
+in jail population. For example, over the years certain racial groups have made
+up on average more of the total jail population than other races have. In this case,
+the two groups with the highest average jail population per year would be
+Black people with an average of **`r avg_black_jail_pop`**, making up
+**`r percent_black_jail_pop`** of the total jail population, and White people with
+an average of **`r avg_white_jail_pop`**, making up **`r percent_white_jail_pop`** of the total population.
 
 
 ## Growth of the U.S. Prison Population
