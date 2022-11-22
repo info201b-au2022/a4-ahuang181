@@ -53,14 +53,78 @@ total_jail_pop_2018 <- incarceration_df %>%
   pull(total_num_jail)
 
 change_1970_2008 <- total_jail_pop_2008 - total_jail_pop_1970
+change_1970_2008 <- prettyNum(change_1970_2008, big.mark = ",", scientific = FALSE)
 
-change_2008_2018 <- total_jail_pop_2018 - total_jail_pop_2008
+change_2008_2018 <- abs(total_jail_pop_2018 - total_jail_pop_2008)
+change_2008_2018 <- prettyNum(change_2008_2018, big.mark = ",", scientific = FALSE)
 
-# Race with highest population in jail 1970-2018
+# Average value of total_jail_pop in each state in 2018 (most recent data)
+# Compare with the state with highest total jail population in 2018
+avg_2018_jail_pop <- incarceration_df %>%
+  filter(year == "2018") %>%
+  select(state, total_jail_pop) %>%
+  group_by(state) %>%
+  summarize(state_total_jail_pop = sum(total_jail_pop, na.rm = TRUE)) %>%
+  summarize(avg_jail_pop = round(mean(state_total_jail_pop))) %>%
+  pull(avg_jail_pop)
+avg_2018_jail_pop <- prettyNum(avg_2018_jail_pop, big.mark = ",", scientific = FALSE)
+avg_2018_jail_pop
 
-# Race in 1970
+highest_state_jail_pop <- incarceration_df %>%
+  filter(year == "2018") %>%
+  select(state, total_jail_pop) %>%
+  group_by(state) %>%
+  summarize(state_total_jail_pop = sum(total_jail_pop, na.rm = TRUE)) %>%
+  filter(state_total_jail_pop == max(state_total_jail_pop)) %>%
+  pull(state)
+highest_state_jail_pop
+
+highest_avg_jail_pop <- incarceration_df %>%
+  filter(year == "2018") %>%
+  select(state, total_jail_pop) %>%
+  group_by(state) %>%
+  summarize(state_total_jail_pop = sum(total_jail_pop, na.rm = TRUE)) %>%
+  filter(state_total_jail_pop == max(state_total_jail_pop)) %>%
+  pull(state_total_jail_pop)
+highest_avg_jail_pop <- prettyNum(highest_avg_jail_pop, big.mark = ",", scientific = FALSE)
+highest_avg_jail_pop
+
+# Race with highest population in jail on average per year 1970-2018
+# Know that these values are from Black people and White people based on
+# the stacked bar chart created in Figure 3 of Section 5.
+
+avg_total_jail_pop <- incarceration_df %>%
+  select(year, total_jail_pop) %>%
+  group_by(year) %>%
+  summarize(total_jail_pop = sum(total_jail_pop, na.rm = TRUE)) %>%
+  summarize(avg_total_jail_pop = round(mean(total_jail_pop, na.rm = TRUE))) %>%
+  pull(avg_total_jail_pop)
+avg_jail_pop <- prettyNum(avg_total_jail_pop, big.mark = ",", scientific = FALSE)
+avg_jail_pop
+
 highest_race_jail_pop <- incarceration_df %>%
-  filter(year == 1970)
+  select(year, black_jail_pop) %>%
+  group_by(year) %>%
+  summarize(black_jail_pop = sum(black_jail_pop, na.rm = TRUE)) %>%
+  summarize(avg_black_jail_pop = round(mean(black_jail_pop, na.rm = TRUE))) %>%
+  pull(avg_black_jail_pop)
+avg_black_jail_pop <- prettyNum(highest_race_jail_pop, big.mark = ",", scientific = FALSE)
+avg_black_jail_pop
+
+highest_race_jail_pop_2 <- incarceration_df %>%
+  select(year, white_jail_pop) %>%
+  group_by(year) %>%
+  summarize(white_jail_pop = sum(white_jail_pop, na.rm = TRUE)) %>%
+  summarize(avg_white_jail_pop = round(mean(white_jail_pop, na.rm = TRUE))) %>%
+  pull(avg_white_jail_pop)
+avg_white_jail_pop <- prettyNum(highest_race_jail_pop_2, big.mark = ",", scientific = FALSE)
+avg_white_jail_pop
+
+percent_black_jail_pop <- round((highest_race_jail_pop / avg_total_jail_pop) * 100)
+percent_black_jail_pop <- paste0(percent_black_jail_pop, "%")
+
+percent_white_jail_pop <- round((highest_race_jail_pop_2 / avg_total_jail_pop) * 100)
+percent_white_jail_pop <- paste0(percent_white_jail_pop, "%")
 
 # Race in 2018
   
