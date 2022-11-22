@@ -1,17 +1,191 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
+title: "Incarceration Trends In the U.S. (1970-2018) Your A4 Report Title (TODO: Revise title)"
 author: "Allison Huang"
 date: 'Autumn 2022'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
 source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
+**Incarceration rates** across the U.S. give *insight* to more
+than just jail populations alone, but how they relate to **discriminatory
+factors** and changing policies. The dataset points to *intersections*
+between jail populations, and the backgrounds and identities of people affected.
+Additionally, the data reveals trends over time, and how numbers are distributed
+geographically.
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
+source("../source/a4-helpers.R")
+source("../source/analysis.R")
+```
+## Introduction
+
+The incarceration rates across the U.S. over the years reveals a lot about
+the country, including **social issues** and **inequalities**.
+Specifically, the data exposes patterns of inequality, including those on
+one's *identity and background*, such as age, gender, and race,
+leading to social issues that have arisen as a result.
+For example, according to data, Black people are much more likely to
+be arrested in comparison to White people, suggesting
+deeper problems within social systems and policies set in place
+in communities (vera.org). Additionally, people of color and other minorities
+are much more likely to be incarcerated as well too. Differences in
+rates could mean those in power created policies that
+give certain groups advantages and others disadvantages, especially those
+that are already more vulnerable in society.  
+
+**Direct stakeholders** include people living in the U.S.
+in general. More specifically, the audience are people that are
+incarcerated, and those in groups disproportionately put into jail,
+so that it can be taken note of to fight for justice in existing inequalities.
+**Indirect stakeholders** include journalists, policymakers, and government officials.
+Journalists would use the data to report to the public
+about incarceration rates in the United States. Policymakers and government
+officials would refer to data to attempt to lessen inequalities that
+exist simply due to people's backgrounds, and train officials so that
+people are arrested equally due to the right reasons. With this, the
+central values that the dataset needs to do is be informative and
+clear, so that people of all levels can interpret the data, and so that the
+data can be communicated to be used as power to fight against inequalities that occur.  
+
+**Questions** that will be answered in the report relate to growth of jail
+populations in the U.S., jail population by race, and jail populations
+distributions across states.  
+* How have the overall number of jail populations across the country
+of the United States changed over time?  
+* How does the jail population in different states vary and
+change over time?  
+* How does the jail population of people belonging to different races
+compare, and what are the trends of those racial populations in jail over time?  
+* How do jail populations across the U.S. in different states vary in
+the year of 2018? 
+
+
+## Data Summary
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
+source("../source/a4-helpers.R")
+source("../source/analysis.R")
+```
+
+Over the years, the change in the jail population has been in general quite
+a steep increase. Specifically, within this dataset, there has been an giant
+increase of about `r change_1970_2008` in jail population from the years of
+1970 to 2008. However, the change in jail population has been more steady in
+comparison to that, within the most recent ten years of the data (2008-2018),
+with a slight decrease of `r change_2008_2018` in jail population.
+
+
+## Growth of the U.S. Prison Population
+
+```{r figure_1, echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
+source("../source/a4-helpers.R")
+source("../source/analysis.R")
+```
+
+``` {r plotting figure_1, echo = FALSE, warning = FALSE}
+plot(figure_1)
+```
+
+Question: How have the overall number of jail populations across the country
+of the United States changed over time?  
+The bar chart depicting the U.S. jail population over the years is significant
+as it points to a trend in which there has been great increases in jailings
+across the country. The data is important as people can visually see that since
+1970, the number of jailings have nearly quadrupled, which is quite alarming,
+and could point to other factors that are causing this. Additionally, based on
+the graph, the steepest increases occurred between the years 1980 and 2005.
+
+## Growth of Prison Population by State
+
+```{r figure_2, echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
+source("../source/a4-helpers.R")
+source("../source/analysis.R")
+```
+
+``` {r plotting figure_2, echo = FALSE, warning = FALSE}
+plot(figure_2)
+```
+
+Question: How does the jail population in different states vary and
+change over time?  
+The line graph displays the number of people in jails by state over the time
+period between 1970 and 2018. From the chart, it can be clearly seen that
+the states of California and New York have the highest jail populations
+for a good amount of the years that are included in the data, which could
+be interesting, as it potentially points to the systems that are put into place
+in those specific states and locations that could be further looked into.
+In addition, each state seems to have spikes and jumps in the number of jailings
+every couple years. The states of AL, CA, FL, NV, NY, and WA were chosen
+as many of these states are spread out in different sections of the United States.
+Additionally, there are also a couple states chosen that are next to each other
+geographically on the US map, for those that want to see how states that
+are so close in vicinity could also have very different jail populations.
+
+
+## Prison Population by Race Over Time Reveals Inequality
+
+```{r figure_3, echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
+source("../source/a4-helpers.R")
+source("../source/analysis.R")
+```
+
+``` {r plotting figure_3, echo = FALSE, warning = FALSE}
+plot(figure_3)
+```
+
+Question: How does the jail population of people belonging to different races
+compare, and what are the trends of those racial populations in jail over time?  
+The graph is significant because it shows groups of people of different
+racial backgrounds and identities that are disproportionately affected by
+the jail system, regardless of what the reason
+may be. It also shows how those trends continue over time, from the 1900s to
+the present day, therefore signifying that jailings according to race
+may still be a great issue for politicians and researchers alike to look into.
+It is interesting to see that over the years, regardless of what the total
+jail population is, Black people and White people, always seem to have
+the most people in jail. It is also notable that from the years of 1970
+all the way up to nearly 1985, there is no data on the
+bar chart, as data could not have been compared since the data for some of the
+races were not available. This is also significant as the data being unavailable could possibly
+point to the idea that data in regards to race had not been collected
+at the time, which also points to how times may have potentially
+changed and people started emphasizing the importance in the
+disparities between race, which in this case, is the jailing system in the U.S. over time.
+
+
+## Prison Population By State Reveals Inequality
+
+```{r figure_4, echo=FALSE, eval=TRUE, message=FALSE, include=FALSE}
+source("../source/a4-helpers.R")
+source("../source/analysis.R")
+```
+
+``` {r plotting figure_4, echo = FALSE, warning = FALSE}
+plot(figure_4)
+```
+
+Question: How do jail populations across the U.S. in different states vary in
+the year of 2018?  
+The graph is significant because it shows how different states across the U.S.
+have different amounts of jail populations. It can be seen that many of the
+states in the U.S. had similar numbers in jail populations due to the color
+fill of navy that they consist of. However, areas that are more of a darker
+red and magenta color had greater jail populations, such as the states of
+New Mexico, Colorado, and Idaho. Furthermore, California has a brighter red,
+and is also the color highest on the scale for this map, signifying that
+they had the most jail population in the year of 2018. In addition, the year
+of 2018 was chosen as it is the most recent to the present day in regards to
+this dataset. With such existing variances, it would be interesting for
+people to dive into the reasonings of why such inequalities occur, and if
+they point to differing policies in the different states.
+
+
+
 
 # Test (TODO: Remove before submission!!)
 ```{r echo=FALSE}
