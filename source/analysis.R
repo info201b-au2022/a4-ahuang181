@@ -126,14 +126,6 @@ percent_black_jail_pop <- paste0(percent_black_jail_pop, "%")
 percent_white_jail_pop <- round((highest_race_jail_pop_2 / avg_total_jail_pop) * 100)
 percent_white_jail_pop <- paste0(percent_white_jail_pop, "%")
 
-# Race in 2018
-  
-  
-
-
-
-
-
 
 ## Section 3  ---- 
 #----------------------------------------------------------------------------#
