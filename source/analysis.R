@@ -195,11 +195,11 @@ figure_1
 get_jail_pop_by_states <- function(states) {
   data <- incarceration_df %>%
     select(year, state, total_jail_pop) %>%
-    filter(state == states)
+    filter(state %in% states) %>%
+    group_by(year, state) %>%
+    summarize(total = sum(total_jail_pop, na.rm = TRUE))
   return(data)
 }
-
-# data <- get_jail_pop_by_states("CA")
 
 plot_jail_pop_by_states <- function(states) {
   data <- get_jail_pop_by_states(states)
@@ -210,14 +210,14 @@ plot_jail_pop_by_states <- function(states) {
     title = "Jail Population Over Time By State (1970-2018)",
     caption = "Figure 2. Jail Population Over Time By State (1970-2018).
               This chart shows different states having varying jail
-              populations over time, with the states of CA and NY
-              having the most jailings in the majority of the years.",
+              populations over time, with the state of CA
+              having the most jailings in all of the displayed years.",
     alt = "Jail Population Over Time By State (1970-2018)"
   )
   
   chart <- ggplot(data) +
     geom_line(
-      mapping = aes(x = year, y = total_jail_pop, color = state)
+      mapping = aes(x = year, y = total, color = state)
     ) +
     labels
   return(chart)
@@ -231,12 +231,15 @@ figure_2
 # change over time?
 # The line graph displays the number of people in jails by state over the time
 # period between 1970 and 2018. From the chart, it can be clearly seen that
-# the states of California and New York have the highest jail populations
-# for a good amount of the years that are included in the data, which could
+# the state of California has the highest jail populations
+# for all of the years that are included in the data, which could
 # be interesting, as it potentially points to the systems that are put into place
-# in those specific states and locations that could be further looked into.
-# In addition, each state seems to have spikes and jumps in the number of jailings
-# every couple years. The states of AL, CA, FL, NV, NY, and WA were chosen
+# in the state of California and specific locations that could be further looked into.
+# In addition, both the states of CA and FL seem to have spikes and jumps in the
+# number of jailings between about 1978 and 2008, in which there were great increases
+# in their respective jail populations. Also, for all of the states that
+# are shown in the chart, they all are depicted to have increases in their state
+# jail populations. The states of AL, CA, FL, NV, NY, and WA were chosen
 # as many of these states are spread out in different sections of the United States.
 # Additionally, there are also a couple states chosen that are next to each other
 # geographically on the US map, for those that want to see how states that
